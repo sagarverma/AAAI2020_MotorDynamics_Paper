@@ -1,0 +1,188 @@
+<h1>Reviewer 1</h1>
+  <h2>Questions</h2>
+    <h3>1. [Summary] Please summarize the main claims/contributions of the paper in your own words. </h3>
+      <p>This paper introduces a model based to learn the dynamics of an electrical motor.
+         The authors use both simulation data (based on a Simulink model) and data from a real induction motor to validate their approach (and also show how to finetune models trained on simulation data using real data).</p>
+    <h3>2. [Relevance] Is this paper relevant to an AI audience? </h3>
+      <p>Relevant to researchers in subareas only</p>
+    <h3>3. [Significance] Are the results significant? </h3>
+      <p>Significant</p>
+    <h3>4. [Novelty] Are the problems or approaches novel? </h3>
+      <p>Novel</p>
+    <h3>5. [Soundness] Is the paper technically sound? </h3>
+      <p>Technically sound</p>
+    <h3>6. [Evaluation] Are claims well-supported by theoretical analysis or experimental results? </h3>
+      <p>Sufficient</p>
+    <h3>7. [Clarity] Is the paper well-organized and clearly written? </h3>
+      <p>Good</p>
+    <h3>8. [Detailed Comments] Please elaborate on your assessments and provide constructive feedback. </h3>
+      <p>
+        <ul>
+          <li>- The details of the system being modeled aren't 100% clear. The most detailed explanation is "The real electrical motor data are collected at 250 Hz from a 4-kilowatt induction motor." It would be nice to have a diagram of the various variables and a picture of the real motor (or at least the model number and brand name).</li>
+          <li>- How is the motor being controlled? Do you think the learned dynamics model is specific to the motor controller used?</li>
+          <li>- It's not clear how the simulation model was tuned to the real actuator? Was this done manually (e.g. based on the specifications of the motor) or was a more elaborate method involved?</li>
+          <li>- Similarly, it would be interesting to test the performance of the model on a range of motor specifications.</li>
+          <li>- Thanks for providing the code and datasets. I did not have time to run the code, but it seems to be complete enough to allow for reproduction of the results.</li>
+        </ul>
+      </p>
+    <h3>9. [QUESTIONS FOR THE AUTHORS] Please provide questions for authors to address during the author feedback period.</h3>
+      <p>
+        <ul>
+          <li>- What is the practical impact of this model? Have you tried this learned motor model in a closed loop control loop?</li>
+          <li>- Is it possible to train the model in an online fashion (e.g. is it possible to improve motor controller performance of a robot arm as it is operating)?</li>
+          <li>- What is the inference time of this model? Can it be run in realtime (i.e. could it be used in a motor controller)?</li>
+          <li>- Are there other baselines available (simple actuator models?)?</li>
+        </ul>
+      </p>
+
+    <h3>10. [OVERALL SCORE] </h3>
+      <p>7 - Accept</p>
+
+  <h2>Rebuttal</h2>
+    <p>We are thankful to all the reviewers for their time, effort, and the constructive feedback. We try to answer each reviewers' comments and questions</p>
+    <ul>
+      <li><p><b>The details of the system being modeled aren't 100% clear. The most detailed explanation is "The real electrical motor data are collected at 250 Hz from a 4-kilowatt induction motor." It would be nice to have a diagram of the various variables and a picture of the real motor (or at least the model number and brand name).</b></p>
+          <p><i>To collect the real motor data, we have used a 4kW Leroy Somer induction motor (LSMV 112 MU), and our load machine is Lorey Somer Direct Current Motor. We did not add the image of our test bench due to space limitations.</i></p>
+          <p><i>Input quantities are voltages $u_d$ and $u_q$ and rotor speed $\omega_r$. </i></p>
+          <p><i>Output quantities are currents $i_d$ and $i_q$ and electromagnetic torque $\tau_{em}$. </i></p>
+             </i>
+           </p>
+      </li>
+
+      <li><p><b>How is the motor being controlled? Do you think the learned dynamics model is specific to the motor controller used?</b></p>
+          <p><i>The motor controller is based on the control law proposed in (Jadot et al. 2009)</i></p>
+          <p><i>The motor controller is based on the physical model of an ideal induction motor (Jadot et al. 2009). By learning the relationship between different quantities, we show that our model can learn the physical model. An exciting way to test this will be to train a model on data generated from one type of motor controller and tested on others.</i></p>
+      </li>
+
+      <li><p><b>It's not clear how the simulation model was tuned to the real actuator? Was this done manually (e.g. based on the specifications of the motor) or was a more elaborate method involved?</b></p>
+          <p><i>No tunning was done. The simulation model uses the parameters provided in (Jadot et al. 2009). The parameters of the real motor is slightly different due to the inherent properties of materials used and the manufacturing process.</li></p>
+      </li>
+
+      <li><p><b>Similarly, it would be interesting to test the performance of the model on a range of motor specifications.</b></p>
+          <p><i>This is an interesting comment and focus of our current work in studying the generalization of the proposed method.</b><p>
+      </li>
+
+      <li><p><b>What is the practical impact of this model? Have you tried this learned motor model in a closed loop control loop?</b></p>
+          <p><i>Our short term focus is to use the model in supervision mode to predict, detect, and classify operational faults. Traditional controllers are very mature and have very high industrial standards. To use DNNs for closed-loop control, several criterions like good response time, robustness, and economical feasibility have to be met.</i></p>
+      </li>
+      <li>
+          <p><b>Is it possible to train the model in an online fashion (e.g. is it possible to improve motor controller performance of a robot arm as it is operating)?</b></p>
+          <p><i>This is an interesting question, and yes, it is possible to learn control policies in an online fashion [arXiv:1808.00177].</i></p>
+      </li>
+      <li>
+          <p><b>What is the inference time of this model? Can it be run in realtime (i.e. could it be used in a motor controller)?</b></p>
+          <p><i>All our models are trained and tested on Nvidia V100 GPU with 32 GPU RAM, which gives us an inference rate of ~8000 samples/second. However, such GPUs cannot be used for motor controllers for reasons like energy management, extreme operating environment(high temperatures, dust, and water), RTOS compatibility, etc. A possible solution is to compress the model that can be used in FPGA or Nvidia Jetson.</i></p>
+      </li>
+      <li>
+          <p><b>Are there other baselines available (simple actuator models?)?</b></p>
+          <p><i>As far as we know, the proposed work is the first to address the problem of data-driven modeling electrical motor dynamics using DNNs.</i></p>
+      </li>
+    </ul>
+
+<h1>Reviewer #2</h1>
+  <h2>Questions</h2>
+    <h3>1. [Summary] Please summarize the main claims/contributions of the paper in your own words.</h3>
+      <p>This paper proposed an improved encoder-decoder network with bidirectional recurrent skip connection to model electrical motor dynamics. Based on a data-driven approach, it uses transfer learning to fine tune the model trained by large simulated data on a small raw sensor dataset. It also compares the proposed method and other standard neural network models on the benchmark datasets.</p>
+    <h3>2. [Relevance] Is this paper relevant to an AI audience?</h3>
+      <p>Relevant to researchers in subareas only</p>
+    <h3>3. [Significance] Are the results significant?</h3>
+      <p>Moderately significant</p>
+    <h3>4. [Novelty] Are the problems or approaches novel?</h3>
+      <p>Somewhat novel or somewhat incremental</p>
+    <h3>5. [Soundness] Is the paper technically sound?</h3>
+      <p>Technically sound</p>
+    <h3>6. [Evaluation] Are claims well-supported by theoretical analysis or experimental results?</h3>
+      <p>Sufficient</p>
+    <h3>7. [Clarity] Is the paper well-organized and clearly written?</h3>
+      <p>Satisfactory</p>
+    <h3>8. [Detailed Comments] Please elaborate on your assessments and provide constructive feedback.</h3>
+      <p>
+        <ul>
+          <li>The work is technically sound but a bit incremental.</li>
+          <li>The application of transfer learning to train electrical motor dynamics is relatively novel. However, it is not clear to me how to justify the proposed encoder-decoder network. How is it supposed to overcome the limitation of other models? The rationale is not stated clearly to me. The difficulty of the task should be discussed as well.</li>
+        </ul>
+      </p>
+    <h3>9. [QUESTIONS FOR THE AUTHORS] Please provide questions for authors to address during the author feedback period.</h3>
+      <ul>
+        <li>
+          <p>In Fig 2, it is not clear to me why there is the need to introduced bidirectional recurrent skip connection. Please elaborate.<p>
+        </li>
+        <li>
+          <p>Other than reduced computational complexity, what's the advantage of using diagonal structure in the weight matrices W and U? Did you compare the performance using a full weight matrix?</p>
+        </li>
+      </ul>
+    <h3>10. [OVERALL SCORE]</h3>
+      <p>7 - Accept</p>
+
+  <h2>Rebuttal</h2>
+    <ul>
+      <li>
+        <p><b>The work is technically sound but a bit incremental.</b></p>
+        <p><i>WWe agree on the point that our modeling approach is inspired by various existing SOTA used on other time-series tasks. However, this is the first paper to introduce the problem of data-driven learning of electrical motor dynamics, and to prove the feasibility of the existing solutions. We try our best to test all variations in an intuitive and incremental manner. We also propose a loss function that takes into account the signal complexities. We present a novel way of analyzing different methods using the SMAPE vs. Signal Complexity graph. We also collect simulated and real-world dataset, which we have shared with reviewers as a supplementary file and plan to make it public with more data that we are collecting. We hope that this will be helpful for artificial intelligence, signal processing, and electrical engineering communities as well as industrie</i></p>
+      </li>
+      <li><p><b>The application of transfer learning to train electrical motor dynamics is relatively novel. However, it is not clear to me how to justify the proposed encoder-decoder network. How is it supposed to overcome the limitation of other models? The rationale is not stated clearly to me. The difficulty of the task should be discussed as well. </p></b>
+          <p><i>Encoder-decoder networks have been proven better for tasks where prediction resolution/size/length is the same as the input. This type of network also allows adding skip-connections to be directly fed from higher layers to lower layers whereas this is not possible in case of traditional networks, which can be seen in the results reported in Table 2.</i></p>
+      </li>
+      <li>
+        <p><b>In Fig 2, it is not clear to me why there is the need to introduced bidirectional recurrent skip connection. Please elaborate.</b><p>
+        <p><i>Convolutional operations are dependent on the kernel size, and features learned are local, whereas RNNs learn temporal dynamics from the whole sequence. To learn temporal dynamics present in convolutional features, we use RNN. We get better performance when compared to traditional skip connections [row 11 and 12 of table 2]. Since we are predicting output, which has the same length as input, bidirectionality helps in learning better temporal dynamics if we unroll in both directions, information from the past is useful for future time steps and vice-versa. This can be seen in [row 12 and 13 of table 2].</i></p>
+      <li>
+        <p><b>Other than reduced computational complexity, what's the advantage of using diagonal structure in the weight matrices W and U? Did you compare the performance using a full weight matrix?</b></p>
+        <p><i>We can see in [row 13 and 14 of table 2] that introducing diagonalization in RNN improves the model's learning capability. The reason we do this is because convolution layers have already provided good channel-wise features for a single time step, so computing those features again by using a matrix weight is unnecessary. Rather we want RNN to learn about temporal dynamics from these sequential features.</i></p>
+      </li>
+    </ul>
+
+<h1>Reviewer #3</h1>
+  <h2>Questions</h2>
+  <h3>1. [Summary] Please summarize the main claims/contributions of the paper in your own words.</h3>
+      <p>This paper presents a model to predict the behavior of electrical motor based on the sequential control parameters. The proposed model is a 1-dimensional CNN model with skip connections. They evaulate the prediction outcomes on simulated data.</p>
+  <h3>2. [Relevance] Is this paper relevant to an AI audience?</h3>
+      <p>Of limited interest to an AI audience</p>
+  <h3>3. [Significance] Are the results significant?</h3>
+      <p>Not significant</p>
+  <h3>4. [Novelty] Are the problems or approaches novel?</h3>
+      <p>Not novel</p>
+  <h3>5. [Soundness] Is the paper technically sound?</h3>
+      <p>Technically sound</p>
+  <h3>6. [Evaluation] Are claims well-supported by theoretical analysis or experimental results?</h3>
+      <p>Somewhat weak</p>
+  <h3>7. [Clarity] Is the paper well-organized and clearly written?</h3>
+      <p>Poor</p>
+  <h3>8. [Detailed Comments] Please elaborate on your assessments and provide constructive feedback.</h3>
+      <p>Generally speaking, the novelty of this work is fairly limited. Both 1-dimensional convolution and skip connection are mature approaches used in computer vision and speech processing. The reweighting on the loss is also known to the research community. Moreover, the experiments are only run over simulation data. Please find the detailed comments below:
+        <ul>
+          <li>1. Formula (3) looks very strange. If the formula is correct, TV-weighted mean square loss is proportional to the original MS loss by factor of a constant. I suppose there is certain mistake in the formula.</li>
+          <li>2. The experiments are very weak. The authors only test over simulated data. It is not sure if the results remain valid over real world data. There is no experiment designed to evaluate if the loss function is the key to the performance improvement. I suggest the authors to test the baseline models with their TV-reweighted loss and check if their own proposal remains competitive.</li>
+          <li>3. The organization of the paper needs further improvement. I expect the authors to provide a clear definition on their problem, at least providing accurate descriptions on the input variables and output prediction targets.</li>
+          <li>4. It is interesting to see R^2 statistics in the results, which somehow show that existing methods return meaningless results. The reviewer is wondering if this is due to unexplainable burst of the output signals. In traditional approaches, such outputs are eliminated.</li>
+        </ul>
+        As a short conclusion, this paper does not have significant technical novlety. It is clearly off the bar of AAAI 2020.
+      </p>
+  <h3>9. [QUESTIONS FOR THE AUTHORS] Please provide questions for authors to address during the author feedback period.</h3>
+      <p>
+        <ul>
+          <li>1. Please explain the problem of Formula (3).</li>
+        </ul>
+      </p>
+  <h3>10. [OVERALL SCORE]</h3>
+      <p>4 - Reject</p>
+
+  <h2>Rebuttal</h2>
+  <ul>
+    <li>
+      <p><b>Formula (3) looks very strange. If the formula is correct, TV-weighted mean square loss is proportional to the original MS loss by factor of a constant. I suppose there is certain mistake in the formula.</b></p>
+      <p><i>Formula (3) weights the MSE loss for a sample by multiplying it with the total variation of the ground truth output. $\sum_{t=1}^{T-1} |y_t - y_{t+1}|$ computes the total variation for the ground truth $y$ of a sample and $\frac{1}{T}\sum^{T}_{t=1}(y_t - \hat{y}_t)^2$ computes MSE for predicted value $\hat{y}$ with a ground truth sample $y$. This makes sure that the loss for samples with high variance are weighted more than the samples with small variance. We have described this in page section 4, page 5, first para. We do this to account for the fact that samples with high variance occur rarely, and the model is biased towards samples with a low variance if trained using MSE. This formula is analogous to the class weighting scheme in the cross-entropy loss.</i></p>
+    </li>
+    <li>
+      <p><b>The experiments are very weak. The authors only test over simulated data. It is not sure if the results remain valid over real world data. There is no experiment designed to evaluate if the loss function is the key to the performance improvement. I suggest the authors to test the baseline models with their TV-reweighted loss and check if their own proposal remains competitive.</b></p>
+      <p><i>We first perform experiments on both simulated and real-world data. We have described both datasets in section 3 Available datasets. We first train and test all our models on simulated data to select the best one, as described in para 2 of section 5 and reported in [table 2]. We then also test the best model trained on simulated data on real-world test data. Then we fine-tune this model on real-world train data and then test on real-world test data. We can see the results in [table 4]. We have trained our best model using both loss functions on simulated data and tested on the test set of simulated data to show the necessity of the proposed loss function [table 3]. We also show SMAPE vs. Signal Complexity curve for the prediction done by the model trained using both loss function in [fig 3].</i><p>
+    </li>
+    <li>
+      <p><b>The organization of the paper needs further improvement. I expect the authors to provide a clear definition on their problem, at least providing accurate descriptions on the input variables and output prediction targets.</b></p>
+      <p><i>We have tried our best to make the problem statement clear and our paper organized. We will do all the changes suggested by reviewers in our final manuscript in case of acceptance. We have described the input-output quantities in fig 2 and in the rebuttal above. We will also add it to the dataset section to avoid confusion.</i></p>
+    </li>
+    <li>
+      <p><b>It is interesting to see R^2 statistics in the results, which somehow show that existing methods return meaningless results. The reviewer is wondering if this is due to unexplainable burst of the output signals. In traditional approaches, such outputs are eliminated.</b></p>
+      <p><i>We are sure that the bursts present in the output signals are due to the dynamics of the electrical motor and the input signal trajectory. We cannot eliminate such variations as they are essential for electrical motor control.</i></p>
+    </li>
+  </ul>

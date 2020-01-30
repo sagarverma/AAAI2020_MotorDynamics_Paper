@@ -1,0 +1,225 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Aksan and Hilliges}{2019}]{aksan2018stcn}
+Aksan, E., and Hilliges, O.
+\newblock 2019.
+\newblock {STCN}: Stochastic temporal convolutional networks.
+\newblock In {\em International Conference on Learning Representations}.
+
+\bibitem[\protect\citeauthoryear{{Anderson}}{1977}]{anderson1977tac}
+{Anderson}, B.
+\newblock 1977.
+\newblock Exponential stability of linear equations arising in adaptive
+  identification.
+\newblock {\em IEEE Transactions on Automatic Control} 22(1):83--88.
+
+\bibitem[\protect\citeauthoryear{Bai, Kolter, and Koltun}{2018}]{bai2018arxiv}
+Bai, S.; Kolter, J.~Z.; and Koltun, V.
+\newblock 2018.
+\newblock An empirical evaluation of generic convolutional and recurrent
+  networks for sequence modeling.
+\newblock {\em CoRR} abs/1803.01271.
+
+\bibitem[\protect\citeauthoryear{Cameron and
+  Windmeijer}{1997}]{COLINCAMERON1997329}
+Cameron, A.~C., and Windmeijer, F.~A.
+\newblock 1997.
+\newblock An {R}-squared measure of goodness of fit for some common nonlinear
+  regression models.
+\newblock {\em Journal of Econometrics} 77(2):329 -- 342.
+
+\bibitem[\protect\citeauthoryear{Campbell}{1987}]{Sylvester1987}
+Campbell, S.~J.
+\newblock 1987.
+\newblock {\em Solid-State AC Motor Controls}.
+
+\bibitem[\protect\citeauthoryear{Carminati \bgroup et al\mbox.\egroup
+  }{2017}]{carminati2017nipsw}
+Carminati, F.; Pierini, G. K.~M.; Farbin, A.; Hooberman, B.; Wei, W.; Zhang,
+  M.; Pacela, V.; Vallecorsafac, S.; Spiropulu, M.; and Vlimant, J.
+\newblock 2017.
+\newblock Calorimetry with deep learning: Particle classification, energy
+  regression, and simulation for high-energy physics.
+\newblock In {\em Deep Learning for Physical Sciences Workshop at NIPS (2017)}.
+
+\bibitem[\protect\citeauthoryear{{Chan} and {Wang}}{1990}]{chan1990tie}
+{Chan}, C.~C., and {Wang}, H.
+\newblock 1990.
+\newblock An effective method for rotor resistance identification for
+  high-performance induction motor vector control.
+\newblock {\em IEEE Transactions on Industrial Electronics} 37(6):477--482.
+
+\bibitem[\protect\citeauthoryear{Christoffersen and
+  Diebold}{1997}]{christoffersen_diebold_1997}
+Christoffersen, P.~F., and Diebold, F.~X.
+\newblock 1997.
+\newblock Optimal prediction under asymmetric loss.
+\newblock {\em Econometric Theory} 13(6):808--817.
+
+\bibitem[\protect\citeauthoryear{{Espinosa-Perez} and
+  Ortega}{1994}]{espinoisa1994scl}
+{Espinosa-Perez}, G., and Ortega, R.
+\newblock 1994.
+\newblock State observers are unnecessary for induction motor control.
+\newblock {\em Systems \& Control Letters} 23(5):315 -- 323.
+
+\bibitem[\protect\citeauthoryear{{Espinosa-Perez} and
+  {Ortega}}{1995}]{espinosa1995tac}
+{Espinosa-Perez}, G., and {Ortega}, R.
+\newblock 1995.
+\newblock An output feedback globally stable controller for induction motors.
+\newblock {\em IEEE Transactions on Automatic Control} 40(1):138--143.
+
+\bibitem[\protect\citeauthoryear{Ghaderi, Sanandaji, and
+  Ghaderi}{2017}]{ghaderi2017icml}
+Ghaderi, A.; Sanandaji, B.; and Ghaderi, F.
+\newblock 2017.
+\newblock Deep forecast: Deep learning-based spatio-temporal forecasting.
+\newblock In {\em Time Series Workshop in International Conference on Machine
+  Learning}.
+
+\bibitem[\protect\citeauthoryear{{Jadot} \bgroup et al\mbox.\egroup
+  }{2009}]{jadot2009induct}
+{Jadot}, F.; {Malrait}, F.; {Moreno-Valenzuela}, J.; and {Sepulchre}, R.
+\newblock 2009.
+\newblock Adaptive regulation of vector-controlled induction motors.
+\newblock {\em IEEE Transactions on Control Systems Technology} 17(3):646--657.
+
+\bibitem[\protect\citeauthoryear{{Jebai} \bgroup et al\mbox.\egroup
+  }{2014}]{jebai2014cdc}
+{Jebai}, A.~K.; {Combes}, P.; {Malrait}, F.; {Martin}, P.; and {Rouchon}, P.
+\newblock 2014.
+\newblock Energy-based modeling of electric motors.
+\newblock In {\em 53rd IEEE Conference on Decision and Control},  6009--6016.
+
+\bibitem[\protect\citeauthoryear{Karpatne \bgroup et al\mbox.\egroup
+  }{2017}]{karpatne2017nipsw}
+Karpatne, A.; Watkins, W.; Read, J.; and Kumar, V.
+\newblock 2017.
+\newblock How can physics inform deep learning methods in scientific problems?:
+  Recent progress and future prospects.
+\newblock In {\em Deep Learning for Physical Sciences Workshop at NIPS (2017)}.
+
+\bibitem[\protect\citeauthoryear{Laptev \bgroup et al\mbox.\egroup
+  }{2017}]{laptev2017icml}
+Laptev, N.; Yosinski, J.; Li, L.; and Smyl, S.
+\newblock 2017.
+\newblock Time-series extreme event forecasting with neural networks at uber.
+\newblock In {\em Time Series Workshop in International Conference on Machine
+  Learning}.
+
+\bibitem[\protect\citeauthoryear{Levin}{1990}]{levin1991nips}
+Levin, E.
+\newblock 1990.
+\newblock Modeling time varying systems using hidden control neural
+  architecture.
+\newblock In {\em International Conference on Neural Information Processing
+  Systems},  147--154.
+
+\bibitem[\protect\citeauthoryear{{Li} \bgroup et al\mbox.\egroup
+  }{2018}]{li2018indrnn}
+{Li}, S.; {Li}, W.; {Cook}, C.; {Zhu}, C.; and {Gao}, Y.
+\newblock 2018.
+\newblock Independently recurrent neural network ({IndRNN}): Building a longer
+  and deeper {RNN}.
+\newblock In {\em Computer Vision and Pattern Recognition},  5457--5466.
+
+\bibitem[\protect\citeauthoryear{Lusch, Kutz, and
+  Brunton}{2018}]{lusch2017deep}
+Lusch, B.; Kutz, J.~N.; and Brunton, S.~L.
+\newblock 2018.
+\newblock Deep learning for universal linear embeddings of nonlinear dynamics.
+\newblock {\em Nature Communications} 9(1):4950.
+
+\bibitem[\protect\citeauthoryear{Mao, Shen, and Yang}{2016}]{NIPS2016_6172}
+Mao, X.; Shen, C.; and Yang, Y.-B.
+\newblock 2016.
+\newblock Image restoration using very deep convolutional encoder-decoder
+  networks with symmetric skip connections.
+\newblock In {\em Advances in Neural Information Processing Systems 29}.
+\newblock  2802--2810.
+
+\bibitem[\protect\citeauthoryear{{Marino}, {Peresada}, and
+  {Tomei}}{1999}]{marino1999tac}
+{Marino}, R.; {Peresada}, S.; and {Tomei}, P.
+\newblock 1999.
+\newblock Global adaptive output feedback control of induction motors with
+  uncertain rotor resistance.
+\newblock {\em IEEE Transactions on Automatic Control} 44(5):967--983.
+
+\bibitem[\protect\citeauthoryear{{Marino}, {Peresada}, and
+  {Tomei}}{2000}]{marino2000tac}
+{Marino}, R.; {Peresada}, S.; and {Tomei}, P.
+\newblock 2000.
+\newblock On-line stator and rotor resistance estimation for induction motors.
+\newblock {\em IEEE Transactions on Control Systems Technology} 8(3):570--579.
+
+\bibitem[\protect\citeauthoryear{Miller and Hardt}{2019}]{miller2018stable}
+Miller, J., and Hardt, M.
+\newblock 2019.
+\newblock Stable recurrent models.
+\newblock In {\em International Conference on Learning Representations}.
+
+\bibitem[\protect\citeauthoryear{Murphey \bgroup et al\mbox.\egroup
+  }{2006}]{murphey2006model}
+Murphey, Y.~L.; Masrur, M.~A.; Chen, Z.; and Zhang, B.
+\newblock 2006.
+\newblock Model-based fault diagnosis in electric drives using machine
+  learning.
+\newblock {\em IEEE/ASME Transactions on Mechatronics} 11(3):290--303.
+
+\bibitem[\protect\citeauthoryear{{Nicklasson} \bgroup et al\mbox.\egroup
+  }{1997}]{nicklasson1997tac}
+{Nicklasson}, P.~J.; {Ortega}, R.; {Espinosa-Perez}, G.; and {Jacobi}, C. G.~J.
+\newblock 1997.
+\newblock Passivity-based control of a class of {Blondel-Park} transformable
+  electric machines.
+\newblock {\em IEEE Transactions on Automatic Control} 42(5):629--647.
+
+\bibitem[\protect\citeauthoryear{{Shi} \bgroup et al\mbox.\egroup
+  }{2019}]{shi2018neurallander}
+{Shi}, G.; {Shi}, X.; {O’Connell}, M.; {Yu}, R.; {Azizzadenesheli}, K.;
+  {Anandkumar}, A.; {Yue}, Y.; and {Chung}, S.
+\newblock 2019.
+\newblock Neural lander: Stable drone landing control using learned dynamics.
+\newblock In {\em International Conference on Robotics and Automation},
+  9784--9790.
+
+\bibitem[\protect\citeauthoryear{Silva, Bazzi, and
+  Gupta}{2013}]{silva2013fault}
+Silva, A.~A.; Bazzi, A.~M.; and Gupta, S.
+\newblock 2013.
+\newblock Fault diagnosis in electric drives using machine learning approaches.
+\newblock In {\em 2013 International Electric Machines Drives Conference},
+  722--726.
+
+\bibitem[\protect\citeauthoryear{Sisking}{1978}]{Siskind1978cpts}
+Sisking, C.~S.
+\newblock 1978.
+\newblock {\em Electrical Control Systems in Industry}.
+
+\bibitem[\protect\citeauthoryear{{Stephan}, {Bodson}, and
+  {Chiasson}}{1992}]{stephan1992iasam}
+{Stephan}, J.; {Bodson}, M.; and {Chiasson}, J.
+\newblock 1992.
+\newblock Real-time estimation of the parameters and fluxes of induction
+  motors.
+\newblock In {\em IEEE Industry Applications Society Annual Meeting},  578--585
+  vol.1.
+
+\bibitem[\protect\citeauthoryear{Yoon, Zame, and Schaar}{2017}]{yoon2017icml}
+Yoon, J.; Zame, W.; and Schaar, M.
+\newblock 2017.
+\newblock Multi-directional recurrent neural networks: A novel method for
+  estimating missing data.
+\newblock In {\em Time Series Workshop in International Conference on Machine
+  Learning}.
+
+\bibitem[\protect\citeauthoryear{{Zhang}}{2002}]{zhang2002tac}
+{Zhang}, Q.
+\newblock 2002.
+\newblock Adaptive observer for multiple-input-multiple-output ({MIMO}) linear
+  time-varying systems.
+\newblock {\em IEEE Transactions on Automatic Control} 47(3):525--529.
+
+\end{thebibliography}

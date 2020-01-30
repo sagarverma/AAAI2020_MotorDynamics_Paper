@@ -1,0 +1,52 @@
+We are thankful to the reviewers for their time and the constructive feedback.
+
+Reviewer1
+C1: The details of the...
+Ans: We have used a 4kW Leroy Somer induction motor (LSMV 112 MU), and our load machine is Leroy Somer Direct Current Motor. An image of our test bench was not provided due to space limitations. Input quantities are voltages $u_d$ and $u_q$ and rotor speed $\omega_r$. Output quantities are currents $i_d$ and $i_q$ and electromagnetic torque $\tau_{em}$.
+
+C2: How is the motor being...
+Ans: The motor controller is based on the control law proposed in (Jadot et al. 2009). This controller is grounded on the physical model of an induction motor with parameters given in (Jadot et al. 2009). Since the control law is derived from the physical dynamics, we believe that our model is able to learn those dynamics.
+
+C3: It's not clear how...
+Ans: No tuning was done. The simulation model uses the parameters provided in (Jadot et al. 2009). The parameters of the real motor might be slightly different due to the inherent properties of materials used and the manufacturing process.
+
+C4: Similarly, it would be...
+Ans: This is an interesting research direction which would require us to conduct more experiments on the motors.
+
+Q1: What is the practical...
+Ans: Our current focus is to use the model in supervision mode to predict operational faults. To use DNNs for closed-loop control, several criterions like good response time, robustness, and economical feasibility have to be met.
+
+Q2: Is it possible to...
+Ans: It is indeed possible to learn control policies in an online fashion [arXiv:1808.00177].
+
+Q3: What is the inference...
+Ans: All our models are trained and tested on Nvidia V100 GPU with 32 GPU RAM, which gives us an inference rate of ~8000 samples/second. However, such GPUs cannot be used for motor controllers for reasons like energy management, extreme operating environment (high temperatures, dust, and water), and RTOS compatibility. A possible solution is to compress the model, so that it can be executed on FPGAs or Nvidia Jetson.
+
+Q4: Are there other baselines...
+Ans: As far as we know, the proposed work is the first to address the problem of data-driven modeling electrical motor dynamics using DNNs.
+
+Reviewer2
+C1: The work is technically...
+Ans: This is the first paper to show the feasibility of DNNs in data-driven modeling of electrical motor dynamics which is of paramount importance in electrical engineering. We provide a suitable architecture to solve this problem and a novel loss function that takes into account the data imbalance problem. We present a novel way of analysing different methods using the SMAPE vs. Signal Complexity graph. We also collected simulated and real-world dataset, which we have shared with reviewers as a supplementary file and plan to make public.
+
+C2: The application of transfer...
+Ans: In our experiments, we find that models are better at capturing temporal dynamics when our output window is the same as the input window. Other than recurrent networks only encoder-decoder networks can be used in such cases. Table 2 shows the benefit of the proposed encoder-decoder network over traditional methods.
+
+Q1: In Fig 2, it is not...
+Ans: Convolutional operations are dependent on the kernel size, and the learned features are local, whereas RNNs learn temporal dynamics from the whole sequence. To learn temporal dynamics present in convolutional features, we use RNN. Bi-directionality provides better global context by using forward and backward unrolling.
+
+Q2: Other than reduced...
+Ans: As can be seen in Table 2, introducing diagonalization in RNN improves the model learning capability. We do this because convolution layers have already provided good channel-wise features, so computing those features again by using a matrix weight in RNN seems unnecessary.
+
+Reviewer3
+C1: Formula (3) looks very...
+Ans: Formula (3) weights the MSE loss for a given sample by multiplying it with the total variation of the ground truth output. $\sum_{t=1}^{T-1} |y_t - y_{t+1}|$ computes the total variation for the ground truth $y$ of a sample and $\frac{1}{T}\sum^{T}_{t=1}(y_t - \hat{y}_t)^2$ computes MSE between predicted value $\hat{y}$ and the ground truth $y$. This makes sure that the loss for a sample with high variance are weighted more than another sample with small variance. We have described this in page 5, section 4, first paragraph. This weighting accounts for the fact that samples with high variance occur rarely, and the model is biased towards samples with a low variance if trained using MSE.
+
+C2: The experiments are very…
+We have not only performed experiments on simulated data, but also on real-world data and we have generated all the required datasets by gathering data from a real electrical motor (see section 3). We first train and test all our models on simulated data to select the best one, as described in paragraph 2 of section 5 and reported in table 2. We then test the best model trained on simulated data on real-world test data. Then we fine-tune this model on real-world train data and then test on the real-world test data. Results are given in table 4. We perform ablation study to show the necessity of the proposed loss function, see table 3. Fig 3 shows SMAPE vs. Signal Complexity curve for the prediction made by the model trained using both loss functions.
+
+C3: The organisation of the...
+Ans: The problem is described both in the abstract and the first paragraph of introduction. We have defined the quantities of interest in section 3 and they also appear in figs 1 and 2. We are however ready to improve this point.
+
+C4: It is interesting to see...
+Ans: We know that the bursts present in the output signals are due to the dynamics of the electrical motor and the input signal trajectory. Such variations cannot be eliminated as they are essential for electrical motor control.
